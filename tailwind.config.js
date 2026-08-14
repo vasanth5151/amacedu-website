@@ -8,20 +8,24 @@ export default {
         display: ['Parkinsans', 'Arial', 'sans-serif'],
       },
       colors: {
+        cream: {
+          DEFAULT: '#e0f2fe', // sky-100 (light blue)
+          deep: '#bae6fd', // sky-200
+        },
         brand: {
           green: '#F97D81',
           greenDark: '#e8666a',
           greenLight: '#ff9a9d',
-          leaf: '#ffeaeb',
+          leaf: '#D1FAE5', // Light green box
+          purple: '#8B5CF6',
+          purpleLight: '#EDE9FE',
+          yellow: '#FBBF24',
+          blue: '#93C5FD',
         },
         ink: {
           DEFAULT: '#4b5563', // gray-600
           soft: '#6b7280', // gray-500
           muted: '#9ca3af', // gray-400
-        },
-        cream: {
-          DEFAULT: '#e0f2fe', // sky-100 (light blue)
-          deep: '#bae6fd', // sky-200
         },
         sand: '#F6EAC9',
         sandDeep: '#EFDCA9',

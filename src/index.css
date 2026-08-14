@@ -8,6 +8,14 @@
   .container-x {
     @apply mx-auto max-w-[1200px] px-6 sm:px-8;
   }
+
+  .no-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 :root {

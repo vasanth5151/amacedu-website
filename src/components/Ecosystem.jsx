@@ -1,60 +1,96 @@
 import { motion } from 'framer-motion'
-import { FiBook, FiAward, FiArrowUpRight } from 'react-icons/fi'
-import SectionHeading from './ui/SectionHeading'
+import { FiArrowRight } from 'react-icons/fi'
 import { fadeUp, stagger, viewport } from '../lib/motion'
+import bed from "../assets/homepage/bed.webp"
+import med from "../assets/homepage/med.webp"
+
 
 const COURSES = [
   {
     title: 'Bachelor of Education (B.Ed)',
-    desc: 'A comprehensive program designed to equip aspiring teachers with the pedagogical skills and subject knowledge needed to excel in modern classrooms.',
-    icon: FiBook,
+    duration: '2 Years',
+    desc: 'Our B.Ed program is designed to prepare competent, compassionate, and inspiring teachers. The curriculum focuses on modern pedagogical skills, child psychology, and hands-on teaching experience.',
+    img: bed,
+    tag: 'B.Ed Course',
+    tagColor: 'bg-brand-yellow text-ink',
+    details: [
+      'Eligibility: Any UG Degree',
+    ]
   },
   {
     title: 'Master of Education (M.Ed)',
-    desc: 'An advanced degree focusing on educational leadership, research, and specialized teaching methodologies for experienced educators.',
-    icon: FiAward,
-  }
+    duration: '2 Years',
+    desc: 'The M.Ed program focuses on educational research, administration, and advanced pedagogy. It prepares students for leadership roles in educational institutions and research bodies.',
+    img: med,
+    tag: 'M.Ed Course',
+    tagColor: 'bg-brand-purple text-white',
+    details: [
+      'Eligibility: B.Ed Degree',
+
+    ]
+  },
 ]
 
 export default function Ecosystem() {
   return (
-    <section id="courses" className="relative overflow-hidden bg-ink py-20 text-white md:py-28">
-      <div className="pointer-events-none absolute right-0 top-0 h-96 w-96 rounded-full bg-brand-green/15 blur-3xl" />
-      <div className="container-x relative">
-        <SectionHeading
-          light
-          eyebrow="Curriculum"
-          title={<>Courses Offered</>}
-          subtitle="Empowering educators with world-class degree programs tailored for teaching excellence."
-        />
-
+    <section id="courses" className="bg-brand-leaf/10 py-20 md:py-28 relative">
+      <div className="container-x relative z-10">
         <motion.div
-          variants={stagger(0.1)}
           initial="hidden"
           whileInView="show"
           viewport={viewport}
-          className="mt-14 grid gap-5 sm:grid-cols-2 lg:max-w-4xl lg:mx-auto"
+          variants={stagger(0.15)}
+          className="text-center mb-16"
         >
-          {COURSES.map((f) => {
-            return (
-              <motion.article
-                key={f.title}
-                variants={fadeUp}
-                className="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] p-7 transition-all duration-300 hover:border-brand-green/40 hover:bg-white/[0.07]"
-              >
-                <div className="flex items-center justify-between">
-                  <span className="grid h-14 w-14 place-items-center rounded-2xl bg-brand-green/15 text-brand-greenLight transition-colors duration-300 group-hover:bg-brand-green group-hover:text-white">
-                    <f.icon size={24} />
-                  </span>
-                  <FiArrowUpRight className="text-white/25 transition-all duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-brand-greenLight" size={22} />
+          <motion.span variants={fadeUp} className="text-brand-purple font-semibold tracking-wider uppercase text-sm mb-2 block">
+            Curriculum
+          </motion.span>
+          <motion.h2 variants={fadeUp} className="text-3xl md:text-4xl lg:text-[40px] font-bold text-ink">
+            Courses Offered
+          </motion.h2>
+        </motion.div>
+
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={viewport}
+          variants={stagger(0.2)}
+          className="grid md:grid-cols-2 gap-8 lg:gap-12 max-w-5xl mx-auto"
+        >
+          {COURSES.map((course, idx) => (
+            <motion.div key={course.title} variants={fadeUp} className="bg-white rounded-3xl overflow-hidden shadow-lg border border-gray-100 flex flex-col relative group transition-transform hover:-translate-y-2">
+              <div className="h-64 relative overflow-hidden">
+                <img src={course.img} alt={course.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                <div className={`absolute top-4 right-4 ${course.tagColor} px-4 py-1.5 rounded-full font-bold text-sm shadow-md`}>
+                  {course.tag}
                 </div>
-                <h3 className="mt-6 font-display text-2xl font-bold">{f.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-white/60">{f.desc}</p>
-              </motion.article>
-            )
-          })}
+              </div>
+
+              <div className="p-8 flex-1 flex flex-col relative">
+                <h3 className="text-2xl font-bold text-ink mb-4">{course.title}</h3>
+
+                <ul className="space-y-2 mb-6 text-sm text-brand-purple font-medium">
+                  {course.details.map((detail, i) => (
+                    <li key={i}>{detail}</li>
+                  ))}
+                </ul>
+
+                <p className="text-ink-muted leading-relaxed mb-12">
+                  {course.desc}
+                </p>
+
+                {/* Floating Bottom Right Button */}
+                <a href="#apply" className="absolute bottom-6 right-6 w-12 h-12 bg-brand-purple hover:bg-brand-purple/90 text-white rounded-xl flex items-center justify-center shadow-md transition-colors">
+                  <FiArrowRight size={20} />
+                </a>
+              </div>
+            </motion.div>
+          ))}
         </motion.div>
       </div>
+
+      {/* Background Decor */}
+      <div className="absolute top-0 right-0 w-64 h-64 bg-brand-green/5 rounded-full blur-3xl pointer-events-none"></div>
     </section>
   )
 }

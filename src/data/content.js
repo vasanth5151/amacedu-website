@@ -19,13 +19,30 @@ export const IMG = {
 }
 
 export const NAV_LINKS = [
-  { label: 'About', href: '#about', hasDropdown: true },
-  { label: 'Academic', href: '#academics' },
-  { label: 'Facilities', href: '#facilities' },
-  { label: 'Curriculum', href: '#courses' },
-  { label: 'Admission', href: '#admissions' },
-  { label: 'Gallery', href: '#gallery' },
-  { label: 'ERP', href: '#erp', hasDropdown: true },
+  { 
+    label: 'About', 
+    href: '#', 
+    hasDropdown: true,
+    dropdown: [
+      { label: 'About Us', href: '/about-us' },
+      { label: 'About College', href: '/about-college' },
+      { label: 'Blogs', href: '/blog' }
+    ]
+  },
+  { label: 'Academic', href: '/academics' },
+  { label: 'Facilities', href: '/facilities' },
+  { label: 'Curriculum', href: '/curriculum' },
+  { label: 'Admission', href: '/admissions' },
+  { label: 'Gallery', href: '/gallery' },
+  { 
+    label: 'ERP', 
+    href: '#', 
+    hasDropdown: true,
+    dropdown: [
+      { label: 'For Students', href: 'https://amacedu.beebasoft.com/user-login' },
+      { label: 'For Staffs', href: 'https://amacedu.beebasoft.com/login' }
+    ]
+  },
 ]
 
 export const STATS = [

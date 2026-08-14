@@ -17,7 +17,7 @@ export default function Navbar() {
   return (
     <header className="fixed inset-x-0 top-0 z-50 flex flex-col">
       {/* top utility bar */}
-      <div className="bg-brand-green text-white py-2 px-4 md:px-8 text-xs sm:text-sm font-medium w-full flex flex-col sm:flex-row items-center justify-between gap-2">
+      <div className="bg-[#F97D81] text-white py-2 px-4 md:px-8 text-xs sm:text-sm font-medium w-full flex flex-col sm:flex-row items-center justify-between gap-2">
         <div className="flex flex-wrap items-center justify-center sm:justify-start gap-x-4 gap-y-2">
           <div className="flex items-center gap-1.5">
             <FiMapPin size={14} />
@@ -46,32 +46,48 @@ export default function Navbar() {
         <nav className="container-x flex items-center justify-between py-3">
 
           {/* Left Logo */}
-          <a href="#home" className="flex items-center shrink-0">
-            <div className="flex flex-col text-[#0056b3]">
-              <img src="/amacedu-logo.webp" alt="AMACEDU Logo" className="h-14 sm:h-16 w-auto object-contain" />
-            </div>
-          </a>
+          <div className="flex items-center shrink-0 -ml-2 lg:-ml-6">
+            <a href="#home" className="flex items-center shrink-0">
+              <img src="/amacedu-logo.webp" alt="AMACEDU Logo" className="h-9 sm:h-12 w-auto object-contain" />
+            </a>
+          </div>
 
           {/* Center Links */}
-          <ul className="hidden xl:flex items-center justify-center gap-6 2xl:gap-8 flex-1 px-4">
+          <ul className="hidden xl:flex items-center justify-center gap-4 2xl:gap-6 flex-1 px-2">
             {NAV_LINKS.map((l) => (
-              <li key={l.label}>
+              <li key={l.label} className="relative group">
                 <a
                   href={l.href}
-                  className="flex items-center gap-1 text-[15px] font-semibold text-ink hover:text-brand-green transition-colors"
+                  className="flex items-center gap-1 text-[13px] 2xl:text-[15px] font-semibold text-ink hover:text-[#F97D81] transition-colors py-4"
                 >
                   {l.label}
-                  {l.hasDropdown && <FiChevronDown size={16} className="mt-0.5" />}
+                  {l.hasDropdown && <FiChevronDown size={14} className="mt-0.5 group-hover:rotate-180 transition-transform" />}
                 </a>
+                {l.hasDropdown && l.dropdown && (
+                  <div className="absolute top-full left-0 w-48 bg-white border border-gray-100 shadow-xl rounded-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 overflow-hidden flex flex-col z-50">
+                    {l.dropdown.map((sub, i) => (
+                      <a
+                        key={i}
+                        href={sub.href}
+                        target={sub.href.startsWith('http') ? '_blank' : undefined}
+                        rel={sub.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                        className="px-5 py-3 text-sm font-semibold text-ink hover:bg-brand-green/10 hover:text-brand-green transition-colors border-b border-gray-50 last:border-0"
+                      >
+                        {sub.label}
+                      </a>
+                    ))}
+                  </div>
+                )}
               </li>
             ))}
           </ul>
 
           {/* Right Logo */}
-          <div className="hidden xl:flex items-center shrink-0 text-right pr-2">
-            <img src="/group-logo.webp" alt="Group Logo" className="h-12 xl:h-14 w-auto object-contain shrink-0" />
+          <div className="hidden xl:flex items-center shrink-0 justify-end">
+            <a href="#home" className="flex items-center shrink-0">
+              <img src="/group-logo.webp" alt="Group Logo" className="h-10 sm:h-14 w-auto object-contain" />
+            </a>
           </div>
-
           <div className="flex items-center gap-3 xl:hidden">
             <button
               onClick={() => setOpen(true)}
@@ -114,15 +130,30 @@ export default function Navbar() {
               </div>
               <ul className="mt-10 flex flex-col gap-2">
                 {NAV_LINKS.map((l) => (
-                  <li key={l.label}>
+                  <li key={l.label} className="flex flex-col">
                     <a
                       href={l.href}
-                      onClick={() => setOpen(false)}
+                      onClick={() => !l.hasDropdown && setOpen(false)}
                       className="flex items-center justify-between rounded-2xl px-4 py-3 text-lg font-semibold text-ink/80 transition hover:bg-white hover:text-ink"
                     >
                       {l.label}
-                      {l.hasDropdown && <FiChevronDown size={20} />}
                     </a>
+                    {l.hasDropdown && l.dropdown && (
+                      <div className="flex flex-col pl-8 mt-1 space-y-1 mb-2">
+                        {l.dropdown.map((sub, i) => (
+                          <a
+                            key={i}
+                            href={sub.href}
+                            target={sub.href.startsWith('http') ? '_blank' : undefined}
+                            rel={sub.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                            onClick={() => setOpen(false)}
+                            className="px-4 py-2 text-base font-medium text-ink/70 hover:text-brand-green transition-colors"
+                          >
+                            {sub.label}
+                          </a>
+                        ))}
+                      </div>
+                    )}
                   </li>
                 ))}
               </ul>
