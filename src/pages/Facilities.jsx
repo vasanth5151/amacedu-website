@@ -34,6 +34,7 @@ import faci13 from '../assets/facilities/faci13.jpg'
 import faci14 from '../assets/facilities/faci14.jpg'
 
 const heroImg = faci1
+
 const FACILITIES = [
   {
     tag: 'Library',
@@ -184,8 +185,8 @@ export default function Facilities() {
             transition={{ delay: 0.3, duration: 0.6 }}
             className="flex items-center justify-center gap-2 text-sm md:text-base font-semibold tracking-wider uppercase text-white/80"
           >
-            <Link to="/" className="hover:text-brand-yellow transition-colors">Home</Link>
-            <FiChevronRight size={14} />
+            <Link to="/" className="text-white hover:text-brand-yellow transition-colors">Home</Link>
+            <FiChevronRight size={14} className="text-white" />
             <span className="text-brand-yellow">Facilities</span>
           </motion.div>
         </div>

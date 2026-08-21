@@ -2,8 +2,7 @@ import { motion } from 'framer-motion'
 import { fadeUp, stagger, viewport } from '../lib/motion'
 import { Link } from 'react-router-dom'
 
-// Assets (Using placeholders where specific images aren't available locally)
-import aboutBg from '../assets/homepage/about1.webp'
+import aboutBg from '../assets/facilities/faci9.jpg'
 import drGokul from '../assets/aboutpage/manage1.webp'
 import drBiruntha from '../assets/aboutpage/principal2.webp'
 import school1 from '../assets/groupofscl_about/maptc.png'
@@ -112,7 +111,7 @@ export default function AboutUs() {
             initial={{ opacity: 0, y: 30 }} 
             animate={{ opacity: 1, y: 0 }} 
             transition={{ duration: 0.6 }}
-            className="text-4xl md:text-6xl font-bold mb-4"
+            className="text-4xl md:text-6xl font-bold mb-4 text-white"
           >
             About Us
           </motion.h1>
@@ -122,8 +121,8 @@ export default function AboutUs() {
             transition={{ delay: 0.3, duration: 0.6 }}
             className="flex items-center justify-center gap-2 text-sm md:text-base font-semibold tracking-wider uppercase text-white/80"
           >
-            <Link to="/" className="hover:text-brand-yellow transition-colors">Home</Link>
-            <span>&gt;</span>
+            <Link to="/" className="text-white hover:text-brand-yellow transition-colors">Home</Link>
+            <span className="text-white">&gt;</span>
             <span className="text-brand-yellow">About Us</span>
           </motion.div>
         </div>

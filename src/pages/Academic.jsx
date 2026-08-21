@@ -7,7 +7,7 @@ import {
 } from 'react-icons/fi'
 import { fadeUp, stagger, viewport } from '../lib/motion'
 
-import heroImg from '../assets/aboutpage/aca7.webp'
+import heroImg from '../assets/facilities/faci10.jpg'
 import introImg from '../assets/aboutpage/aca1.webp'
 import curriculumImg from '../assets/aboutpage/about1.webp'
 import bedImg from '../assets/homepage/bed.webp'
@@ -117,8 +117,8 @@ export default function Academic() {
             transition={{ delay: 0.3, duration: 0.6 }}
             className="flex items-center justify-center gap-2 text-sm md:text-base font-semibold tracking-wider uppercase text-white/80"
           >
-            <Link to="/" className="hover:text-brand-yellow transition-colors">Home</Link>
-            <FiChevronRight size={14} />
+            <Link to="/" className="text-white hover:text-brand-yellow transition-colors">Home</Link>
+            <FiChevronRight size={14} className="text-white" />
             <span className="text-brand-yellow">Academic</span>
           </motion.div>
         </div>

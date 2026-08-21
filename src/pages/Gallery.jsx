@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import { FiChevronRight, FiChevronDown, FiImage } from 'react-icons/fi'
 import { fadeUp, stagger, viewport } from '../lib/motion'
 
-import heroImg from '../assets/homepage/gallery1.webp'
+import heroImg from '../assets/facilities/faci11.jpg'
 
 import gal1 from '../assets/gallery/gal1.jpg'
 import gal2 from '../assets/gallery/gal2.jpg'
@@ -98,8 +98,8 @@ export default function Gallery() {
             transition={{ delay: 0.3, duration: 0.6 }}
             className="flex items-center justify-center gap-2 text-sm md:text-base font-semibold tracking-wider uppercase text-white/80"
           >
-            <Link to="/" className="hover:text-brand-yellow transition-colors">Home</Link>
-            <FiChevronRight size={14} />
+            <Link to="/" className="text-white hover:text-brand-yellow transition-colors">Home</Link>
+            <FiChevronRight size={14} className="text-white" />
             <span className="text-brand-yellow">Gallery</span>
           </motion.div>
         </div>

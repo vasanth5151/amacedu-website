@@ -12,7 +12,7 @@ import {
 } from 'react-icons/fi'
 import { fadeUp, stagger, viewport } from '../lib/motion'
 
-import aboutBg from '../assets/homepage/about2.webp'
+import aboutBg from '../assets/facilities/faci4.jpg'
 import about1 from '../assets/aboutpage/about1.webp'
 import about2 from '../assets/aboutpage/about2.webp'
 import about3 from '../assets/aboutpage/about3.webp'
@@ -162,8 +162,8 @@ export default function AboutCollege() {
             transition={{ delay: 0.3, duration: 0.6 }}
             className="flex items-center justify-center gap-2 text-sm md:text-base font-semibold tracking-wider uppercase text-white/80"
           >
-            <Link to="/" className="hover:text-brand-yellow transition-colors">Home</Link>
-            <FiChevronRight size={14} />
+            <Link to="/" className="text-white hover:text-brand-yellow transition-colors">Home</Link>
+            <FiChevronRight size={14} className="text-white" />
             <span className="text-brand-yellow">About College</span>
           </motion.div>
         </div>

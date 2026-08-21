@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { FiChevronRight, FiCalendar, FiUser, FiArrowRight } from 'react-icons/fi'
 import { fadeUp, stagger, viewport } from '../lib/motion'
 
-import aboutBg from '../assets/homepage/about1.webp'
+import aboutBg from '../assets/facilities/faci7.jpg'
 
 // Shape mirrors a Sanity "post" document: slug, title, excerpt, mainImage,
 // category, author, publishedAt — swap this array for a live query later.
@@ -71,8 +71,8 @@ export default function Blogs() {
             transition={{ delay: 0.3, duration: 0.6 }}
             className="flex items-center justify-center gap-2 text-sm md:text-base font-semibold tracking-wider uppercase text-white/80"
           >
-            <Link to="/" className="hover:text-brand-yellow transition-colors">Home</Link>
-            <FiChevronRight size={14} />
+            <Link to="/" className="text-white hover:text-brand-yellow transition-colors">Home</Link>
+            <FiChevronRight size={14} className="text-white" />
             <span className="text-brand-yellow">Blog</span>
           </motion.div>
         </div>
