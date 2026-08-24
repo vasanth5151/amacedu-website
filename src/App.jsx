@@ -11,6 +11,8 @@ import Facilities from './pages/Facilities';
 import Curriculum from './pages/Curriculum';
 import Admission from './pages/Admission';
 import Gallery from './pages/Gallery';
+import Careers from './pages/Careers';
+import Contact from './pages/Contact';
 
 const pageMeta = {
   '/': {
@@ -48,6 +50,14 @@ const pageMeta = {
   '/gallery': {
     title: 'AMACEDU Gallery | Campus Life, Events & Achievements',
     description: 'Browse AMACEDU gallery photos capturing campus life, events, classrooms, achievements, and memorable moments from college life.',
+  },
+  '/careers': {
+    title: 'Careers at AMACEDU | Join Our Faculty & Staff Team',
+    description: 'Explore career opportunities at AMACEDU College of Education. Apply online for teaching and administrative positions.',
+  },
+  '/contact': {
+    title: 'Contact AMACEDU | College Address, Phone & Location Map',
+    description: 'Get in touch with AMACEDU College of Education in Uthiramerur. View location map, contact numbers, email, and send inquiries.',
   },
 };
 
@@ -90,6 +100,8 @@ function App() {
             <Route path="/curriculum" element={<Curriculum />} />
             <Route path="/admissions" element={<Admission />} />
             <Route path="/gallery" element={<Gallery />} />
+            <Route path="/careers" element={<Careers />} />
+            <Route path="/contact" element={<Contact />} />
           </Routes>
         </main>
         <Footer />

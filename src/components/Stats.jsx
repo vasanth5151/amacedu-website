@@ -3,20 +3,20 @@ import { FiUsers, FiAward, FiBook, FiTrendingUp } from 'react-icons/fi'
 import { fadeUp, stagger, viewport } from '../lib/motion'
 
 const STATS = [
-  { label: 'Qualified Staffs', value: '50+', icon: <FiUsers size={32} /> },
-  { label: 'Students', value: '2000+', icon: <FiBook size={32} /> },
-  { label: 'Years of Excellence', value: '15+', icon: <FiAward size={32} /> },
-  { label: 'Placement', value: '100%', icon: <FiTrendingUp size={32} /> },
+  { label: 'Years of Excellence', value: '18+', icon: <FiUsers size={32} /> },
+  { label: 'Results', value: '100+', icon: <FiBook size={32} /> },
+  { label: 'Experts Teachers', value: '20+', icon: <FiAward size={32} /> },
+  { label: 'Students', value: '500+', icon: <FiTrendingUp size={32} /> },
 ]
 
 export default function Stats() {
   return (
     <section className="bg-brand-purple py-16 text-white overflow-hidden relative">
       <div className="container-x relative z-10">
-        <motion.div 
-          initial="hidden" 
-          whileInView="show" 
-          viewport={viewport} 
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={viewport}
           variants={stagger(0.1)}
           className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4 text-center divide-x divide-white/20"
         >

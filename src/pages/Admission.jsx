@@ -22,7 +22,6 @@ const COURSES = [
   'B.Ed. (English)',
   'B.Ed. (Mathematics)',
   'B.Ed. (Physical Science)',
-  'M.Ed. (Master of Education)',
 ]
 
 const STEPS = [

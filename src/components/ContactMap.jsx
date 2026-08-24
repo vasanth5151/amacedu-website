@@ -17,16 +17,6 @@ export default function ContactMap() {
       </div>
 
       <div className="container-x h-full relative z-10 flex items-center justify-end">
-        {/* Yellow Direction Pointer Graphic (Simulated) */}
-        <motion.div 
-          initial={{ opacity: 0, x: -50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={viewport}
-          className="hidden lg:flex absolute left-10 top-1/2 -translate-y-1/2 bg-brand-yellow px-8 py-4 rounded-l-md items-center justify-center shadow-lg"
-          style={{ clipPath: 'polygon(0% 0%, 80% 0%, 100% 50%, 80% 100%, 0% 100%)', width: '280px', height: '100px' }}
-        >
-          <div className="text-ink font-extrabold text-2xl uppercase tracking-widest pl-4">AMACEDU</div>
-        </motion.div>
 
         {/* Contact Us Box */}
         <motion.div 

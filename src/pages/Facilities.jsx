@@ -214,9 +214,9 @@ export default function Facilities() {
               >
                 <motion.div
                   variants={fadeUp}
-                  className={`h-56 md:h-64 lg:h-72 flex items-center justify-center bg-gray-50 p-6 ${idx % 2 === 1 ? 'lg:order-2' : ''}`}
+                  className={`h-64 sm:h-72 md:h-80 lg:h-auto relative overflow-hidden ${idx % 2 === 1 ? 'lg:order-2' : ''}`}
                 >
-                  <img src={f.img} alt={f.tag} className="max-w-[220px] max-h-full w-auto h-auto object-contain rounded-xl shadow-md" />
+                  <img src={f.img} alt={f.tag} className="w-full h-full object-cover min-h-[260px]" />
                 </motion.div>
                 <motion.div variants={fadeUp} className={`p-8 md:p-10 flex flex-col justify-center ${idx % 2 === 1 ? 'lg:order-1' : ''}`}>
                   <span className={`inline-flex items-center gap-2 self-start ${f.color} text-white text-xs font-bold uppercase tracking-wider px-4 py-1.5 rounded-full mb-5`}>
@@ -244,8 +244,8 @@ export default function Facilities() {
                 variants={fadeUp}
                 className="rounded-3xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.07)] border border-gray-100 bg-white flex flex-col"
               >
-                <div className="h-40 flex items-center justify-center bg-gray-50 p-4">
-                  <img src={f.img} alt={f.tag} className="max-w-[200px] max-h-full w-auto h-auto object-contain rounded-lg shadow-sm" />
+                <div className="h-52 md:h-60 relative overflow-hidden">
+                  <img src={f.img} alt={f.tag} className="w-full h-full object-cover" />
                 </div>
                 <div className="p-6 md:p-7">
                   <span className={`inline-flex items-center gap-2 ${f.color} text-white text-xs font-bold uppercase tracking-wider px-4 py-1.5 rounded-full mb-4`}>
@@ -280,15 +280,15 @@ export default function Facilities() {
               <motion.div
                 key={feat.title}
                 variants={fadeUp}
-                className="bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:-translate-y-1.5 hover:shadow-xl transition-all duration-300"
+                className="bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:-translate-y-1.5 hover:shadow-xl transition-all duration-300 flex flex-col"
               >
-                <div className="h-36 relative flex items-center justify-center bg-gray-50 p-4">
-                  <img src={feat.img} alt={feat.title} className="max-w-[180px] max-h-full w-auto h-auto object-contain rounded-lg shadow-sm" />
+                <div className="h-52 md:h-56 relative overflow-hidden bg-gray-100">
+                  <img src={feat.img} alt={feat.title} className="w-full h-full object-cover transition-transform duration-500 hover:scale-105" />
                   <div className={`absolute -bottom-5 left-6 w-12 h-12 rounded-xl flex items-center justify-center shadow-md border-2 border-white ${feat.color}`}>
                     {feat.icon}
                   </div>
                 </div>
-                <div className="p-6 md:p-7 pt-8">
+                <div className="p-6 md:p-7 pt-8 flex-1 flex flex-col justify-between">
                   <h4 className="font-bold text-ink text-lg mb-3 leading-snug">{feat.title}</h4>
                   <p className="text-ink-soft text-sm leading-relaxed">{feat.desc}</p>
                 </div>

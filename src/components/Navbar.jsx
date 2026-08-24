@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
 import { FiPhone, FiMail, FiMapPin, FiMenu, FiX, FiChevronDown } from 'react-icons/fi'
 import { NAV_LINKS } from '../data/content'
@@ -35,9 +36,9 @@ export default function Navbar() {
           </a>
         </div>
         <div className="flex items-center gap-3 shrink-0">
-          <a href="#careers" className="hover:opacity-80">Careers</a>
+          <Link to="/careers" className="hover:opacity-80">Careers</Link>
           <span className="opacity-50">|</span>
-          <a href="#contact" className="hover:opacity-80">Contact us</a>
+          <Link to="/contact" className="hover:opacity-80">Contact us</Link>
         </div>
       </div>
 
@@ -47,7 +48,7 @@ export default function Navbar() {
 
           {/* Left Logo */}
           <div className="flex items-center shrink-0 -ml-2 lg:-ml-6">
-            <a href="#home" className="flex items-center shrink-0">
+            <a href="/" className="flex items-center shrink-0">
               <img src="/amacedu-logo.webp" alt="AMACEDU Logo" className="h-9 sm:h-12 w-auto object-contain" />
             </a>
           </div>
@@ -84,8 +85,8 @@ export default function Navbar() {
 
           {/* Right Logo */}
           <div className="hidden xl:flex items-center shrink-0 justify-end">
-            <a href="#home" className="flex items-center shrink-0">
-              <img src="/group-logo.webp" alt="Group Logo" className="h-10 sm:h-14 w-auto object-contain" />
+            <a href="https://mat.org.in/" target='_blank' className="flex items-center shrink-0">
+              <img src="/meenakshi-group-logo.png" alt="Group Logo" className="h-16 sm:h-20 w-auto object-contain" />
             </a>
           </div>
           <div className="flex items-center gap-3 xl:hidden">

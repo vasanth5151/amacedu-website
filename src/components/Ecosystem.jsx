@@ -4,7 +4,6 @@ import { fadeUp, stagger, viewport } from '../lib/motion'
 import bed from "../assets/homepage/bed.webp"
 import med from "../assets/homepage/med.webp"
 
-
 const COURSES = [
   {
     title: 'Bachelor of Education (B.Ed)',
@@ -26,7 +25,6 @@ const COURSES = [
     tagColor: 'bg-brand-purple text-white',
     details: [
       'Eligibility: B.Ed Degree',
-
     ]
   },
 ]
@@ -57,7 +55,7 @@ export default function Ecosystem() {
           variants={stagger(0.2)}
           className="grid md:grid-cols-2 gap-8 lg:gap-12 max-w-5xl mx-auto"
         >
-          {COURSES.map((course, idx) => (
+          {COURSES.map((course) => (
             <motion.div key={course.title} variants={fadeUp} className="bg-white rounded-3xl overflow-hidden shadow-lg border border-gray-100 flex flex-col relative group transition-transform hover:-translate-y-2">
               <div className="h-64 relative overflow-hidden">
                 <img src={course.img} alt={course.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
@@ -80,7 +78,7 @@ export default function Ecosystem() {
                 </p>
 
                 {/* Floating Bottom Right Button */}
-                <a href="#apply" className="absolute bottom-6 right-6 w-12 h-12 bg-brand-purple hover:bg-brand-purple/90 text-white rounded-xl flex items-center justify-center shadow-md transition-colors">
+                <a href="/academics" className="absolute bottom-6 right-6 w-12 h-12 bg-brand-purple hover:bg-brand-purple/90 text-white rounded-xl flex items-center justify-center shadow-md transition-colors">
                   <FiArrowRight size={20} />
                 </a>
               </div>
