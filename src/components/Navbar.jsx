@@ -93,12 +93,12 @@ export default function Navbar() {
 
           {/* Right Section: Group Logo & Mobile Hamburger Menu */}
           <div className="flex items-center gap-2 sm:gap-4 shrink-0">
-            {/* Right Logo (Visible on mobile & desktop) */}
+            {/* Right Logo (Hidden on mobile, visible on desktop) */}
             <a
               href="https://mat.org.in/"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center shrink-0"
+              className="hidden xl:flex items-center shrink-0"
             >
               <img
                 src="/meenakshi-group-logo.png"
@@ -137,14 +137,19 @@ export default function Navbar() {
               transition={{ type: 'spring', damping: 30, stiffness: 260 }}
               className="fixed right-0 top-0 z-50 flex h-full w-[85%] max-w-sm flex-col bg-white p-6 xl:hidden overflow-y-auto shadow-2xl"
             >
-              {/* Header: Group Logo + Close button */}
-              <div className="flex items-center justify-between border-b border-gray-100 pb-4">
-                <a href="https://mat.org.in/" target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)} className="flex items-center shrink-0">
-                  <img src="/meenakshi-group-logo.png" alt="Group Logo" className="h-11 max-w-[190px] w-auto object-contain" />
-                </a>
+              {/* Header: AMACEDU & Group Logos + Close button */}
+              <div className="flex items-start justify-between border-b border-gray-100 pb-4">
+                <div className="flex flex-col gap-2.5">
+                  <a href="/" onClick={() => setOpen(false)} className="flex items-center shrink-0">
+                    <img src="/amacedu-logo.webp" alt="AMACEDU Logo" className="h-8 w-auto object-contain" />
+                  </a>
+                  <a href="https://mat.org.in/" target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)} className="flex items-center shrink-0 pt-1 border-t border-gray-100">
+                    <img src="/meenakshi-group-logo.png" alt="Group Logo" className="h-9 max-w-[170px] w-auto object-contain" />
+                  </a>
+                </div>
                 <button
                   onClick={() => setOpen(false)}
-                  className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200 transition-colors"
+                  className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200 transition-colors shrink-0"
                   aria-label="Close menu"
                 >
                   <FiX size={20} />

@@ -26,7 +26,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section id="home" className="relative overflow-hidden bg-white pt-24 md:pt-32 pb-16 md:pb-24">
+    <section id="home" className="relative overflow-hidden bg-white pt-[170px] sm:pt-[190px] md:pt-32 pb-16 md:pb-24">
       <div className="container-x relative z-10 grid items-center gap-12 lg:grid-cols-2">
         {/* Left Content */}
         <motion.div variants={stagger(0.15)} initial="hidden" animate="show" className="max-w-xl">
