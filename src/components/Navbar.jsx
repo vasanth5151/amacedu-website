@@ -26,7 +26,7 @@ export default function Navbar() {
   return (
     <header className="fixed inset-x-0 top-0 z-50 flex flex-col">
       {/* top utility bar */}
-      <div className="bg-[#F97D81] text-white py-2 px-4 md:px-8 text-xs sm:text-sm font-medium w-full flex flex-col sm:flex-row items-center justify-between gap-2">
+      <div className={`bg-[#F97D81] text-white py-2 px-4 md:px-8 text-xs sm:text-sm font-medium w-full flex-col sm:flex-row items-center justify-between gap-2 transition-all duration-300 ${scrolled ? 'hidden md:flex' : 'flex'}`}>
         <div className="flex flex-wrap items-center justify-center sm:justify-start gap-x-4 gap-y-2">
           <div className="flex items-center gap-1.5">
             <FiMapPin size={14} />
@@ -52,22 +52,22 @@ export default function Navbar() {
 
       {/* main nav */}
       <div className={`w-full bg-white transition-shadow duration-300 ${scrolled ? 'shadow-md' : 'shadow-sm'}`}>
-        <nav className="container-x flex items-center justify-between py-3">
+        <nav className="container-x flex items-center justify-between py-2 sm:py-3">
 
           {/* Left Logo */}
-          <div className="flex items-center shrink-0 -ml-2 lg:-ml-6">
+          <div className="flex items-center shrink-0">
             <a href="/" className="flex items-center shrink-0">
-              <img src="/amacedu-logo.webp" alt="AMACEDU Logo" className="h-11 sm:h-14 md:h-16 w-auto object-contain" />
+              <img src="/amacedu-logo.webp" alt="AMACEDU Logo" className="h-8 sm:h-10 lg:h-13 w-auto object-contain" />
             </a>
           </div>
 
           {/* Center Links */}
-          <ul className="hidden xl:flex items-center justify-center gap-4 2xl:gap-6 flex-1 px-2">
+          <ul className="hidden xl:flex items-center justify-center gap-3 2xl:gap-6 flex-1 px-2">
             {NAV_LINKS.map((l) => (
               <li key={l.label} className="relative group">
                 <a
                   href={l.href}
-                  className="flex items-center gap-1 text-[13px] 2xl:text-[15px] font-semibold text-ink hover:text-[#F97D81] transition-colors py-4"
+                  className="flex items-center gap-1 text-[13px] 2xl:text-[15px] font-semibold text-ink hover:text-[#F97D81] transition-colors py-3"
                 >
                   {l.label}
                   {l.hasDropdown && <FiChevronDown size={14} className="mt-0.5 group-hover:rotate-180 transition-transform" />}
@@ -91,29 +91,29 @@ export default function Navbar() {
             ))}
           </ul>
 
-          {/* Right Section: Group Logo (Desktop) & Mobile Hamburger Menu */}
+          {/* Right Section: Group Logo & Mobile Hamburger Menu */}
           <div className="flex items-center gap-2 sm:gap-4 shrink-0">
-            {/* Right Logo (Visible on desktop XL+) */}
+            {/* Right Logo (Visible on mobile & desktop) */}
             <a
               href="https://mat.org.in/"
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden xl:flex items-center shrink-0"
+              className="flex items-center shrink-0"
             >
               <img
                 src="/meenakshi-group-logo.png"
                 alt="Group Logo"
-                className="h-18 sm:h-22 w-auto object-contain"
+                className="h-7 sm:h-10 lg:h-14 max-w-[110px] sm:max-w-[180px] lg:max-w-[240px] w-auto object-contain"
               />
             </a>
 
             {/* Mobile Hamburger Button */}
             <button
               onClick={() => setOpen(true)}
-              className="xl:hidden flex items-center justify-center h-10 w-10 rounded-lg bg-[#F97D81] text-white hover:bg-[#e8666a] active:scale-95 transition-all shadow-md shrink-0"
+              className="xl:hidden flex items-center justify-center h-9 w-9 sm:h-10 sm:w-10 rounded-lg bg-[#F97D81] text-white hover:bg-[#e8666a] active:scale-95 transition-all shadow-md shrink-0"
               aria-label="Open menu"
             >
-              <FiMenu size={24} />
+              <FiMenu size={22} />
             </button>
           </div>
         </nav>
@@ -140,7 +140,7 @@ export default function Navbar() {
               {/* Header: Group Logo + Close button */}
               <div className="flex items-center justify-between border-b border-gray-100 pb-4">
                 <a href="https://mat.org.in/" target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)} className="flex items-center shrink-0">
-                  <img src="/meenakshi-group-logo.png" alt="Group Logo" className="h-14 sm:h-16 max-h-16 w-auto object-contain" />
+                  <img src="/meenakshi-group-logo.png" alt="Group Logo" className="h-11 max-w-[190px] w-auto object-contain" />
                 </a>
                 <button
                   onClick={() => setOpen(false)}
