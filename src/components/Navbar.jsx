@@ -7,6 +7,14 @@ import { NAV_LINKS } from '../data/content'
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
+  const [openDropdowns, setOpenDropdowns] = useState({})
+
+  const toggleDropdown = (label) => {
+    setOpenDropdowns((prev) => ({
+      ...prev,
+      [label]: !prev[label],
+    }))
+  }
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20)
@@ -49,7 +57,7 @@ export default function Navbar() {
           {/* Left Logo */}
           <div className="flex items-center shrink-0 -ml-2 lg:-ml-6">
             <a href="/" className="flex items-center shrink-0">
-              <img src="/amacedu-logo.webp" alt="AMACEDU Logo" className="h-9 sm:h-12 w-auto object-contain" />
+              <img src="/amacedu-logo.webp" alt="AMACEDU Logo" className="h-11 sm:h-14 md:h-16 w-auto object-contain" />
             </a>
           </div>
 
@@ -83,16 +91,26 @@ export default function Navbar() {
             ))}
           </ul>
 
-          {/* Right Logo */}
-          <div className="hidden xl:flex items-center shrink-0 justify-end">
-            <a href="https://mat.org.in/" target='_blank' className="flex items-center shrink-0">
-              <img src="/meenakshi-group-logo.png" alt="Group Logo" className="h-16 sm:h-20 w-auto object-contain" />
+          {/* Right Section: Group Logo (Desktop) & Mobile Hamburger Menu */}
+          <div className="flex items-center gap-2 sm:gap-4 shrink-0">
+            {/* Right Logo (Visible on desktop XL+) */}
+            <a
+              href="https://mat.org.in/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden xl:flex items-center shrink-0"
+            >
+              <img
+                src="/meenakshi-group-logo.png"
+                alt="Group Logo"
+                className="h-18 sm:h-22 w-auto object-contain"
+              />
             </a>
-          </div>
-          <div className="flex items-center gap-3 xl:hidden">
+
+            {/* Mobile Hamburger Button */}
             <button
               onClick={() => setOpen(true)}
-              className="grid h-10 w-10 place-items-center rounded-md bg-cream text-ink"
+              className="xl:hidden flex items-center justify-center h-10 w-10 rounded-lg bg-[#F97D81] text-white hover:bg-[#e8666a] active:scale-95 transition-all shadow-md shrink-0"
               aria-label="Open menu"
             >
               <FiMenu size={24} />
@@ -110,37 +128,65 @@ export default function Navbar() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setOpen(false)}
-              className="fixed inset-0 z-40 bg-ink/50 backdrop-blur-sm xl:hidden"
+              className="fixed inset-0 z-40 bg-black/50 backdrop-blur-sm xl:hidden"
             />
             <motion.aside
               initial={{ x: '100%' }}
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 30, stiffness: 260 }}
-              className="fixed right-0 top-0 z-50 flex h-full w-[80%] max-w-sm flex-col bg-cream p-7 xl:hidden overflow-y-auto"
+              className="fixed right-0 top-0 z-50 flex h-full w-[85%] max-w-sm flex-col bg-white p-6 xl:hidden overflow-y-auto shadow-2xl"
             >
-              <div className="flex items-center justify-between">
-                <span className="font-display text-lg font-extrabold text-[#0056b3]">AMACEDU</span>
+              {/* Header: Group Logo + Close button */}
+              <div className="flex items-center justify-between border-b border-gray-100 pb-4">
+                <a href="https://mat.org.in/" target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)} className="flex items-center shrink-0">
+                  <img src="/meenakshi-group-logo.png" alt="Group Logo" className="h-14 sm:h-16 max-h-16 w-auto object-contain" />
+                </a>
                 <button
                   onClick={() => setOpen(false)}
-                  className="grid h-10 w-10 place-items-center rounded-full border border-ink/15 text-ink"
+                  className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200 transition-colors"
                   aria-label="Close menu"
                 >
                   <FiX size={20} />
                 </button>
               </div>
-              <ul className="mt-10 flex flex-col gap-2">
+
+              {/* Nav links list with interactive accordion dropdowns */}
+              <ul className="mt-6 flex flex-col gap-1 flex-1">
                 {NAV_LINKS.map((l) => (
-                  <li key={l.label} className="flex flex-col">
-                    <a
-                      href={l.href}
-                      onClick={() => !l.hasDropdown && setOpen(false)}
-                      className="flex items-center justify-between rounded-2xl px-4 py-3 text-lg font-semibold text-ink/80 transition hover:bg-white hover:text-ink"
-                    >
-                      {l.label}
-                    </a>
-                    {l.hasDropdown && l.dropdown && (
-                      <div className="flex flex-col pl-8 mt-1 space-y-1 mb-2">
+                  <li key={l.label} className="flex flex-col border-b border-gray-50 last:border-0 py-1">
+                    {l.hasDropdown ? (
+                      <button
+                        type="button"
+                        onClick={() => toggleDropdown(l.label)}
+                        className="flex items-center justify-between w-full rounded-xl px-3 py-2.5 text-base font-semibold text-gray-800 transition hover:bg-gray-50 hover:text-[#F97D81]"
+                      >
+                        <span>{l.label}</span>
+                        <FiChevronDown
+                          size={18}
+                          className={`text-gray-500 transition-transform duration-200 ${
+                            openDropdowns[l.label] ? 'rotate-180 text-[#F97D81]' : ''
+                          }`}
+                        />
+                      </button>
+                    ) : (
+                      <a
+                        href={l.href}
+                        onClick={() => setOpen(false)}
+                        className="flex items-center justify-between rounded-xl px-3 py-2.5 text-base font-semibold text-gray-800 transition hover:bg-gray-50 hover:text-[#F97D81]"
+                      >
+                        {l.label}
+                      </a>
+                    )}
+
+                    {l.hasDropdown && l.dropdown && openDropdowns[l.label] && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: 'auto', opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.2 }}
+                        className="flex flex-col pl-4 my-1 space-y-1 bg-gray-50 rounded-xl p-2"
+                      >
                         {l.dropdown.map((sub, i) => (
                           <a
                             key={i}
@@ -148,12 +194,12 @@ export default function Navbar() {
                             target={sub.href.startsWith('http') ? '_blank' : undefined}
                             rel={sub.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                             onClick={() => setOpen(false)}
-                            className="px-4 py-2 text-base font-medium text-ink/70 hover:text-brand-green transition-colors"
+                            className="px-3 py-2 text-sm font-medium text-gray-600 hover:text-[#F97D81] transition-colors rounded-lg hover:bg-white"
                           >
                             {sub.label}
                           </a>
                         ))}
-                      </div>
+                      </motion.div>
                     )}
                   </li>
                 ))}

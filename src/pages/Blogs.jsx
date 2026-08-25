@@ -29,7 +29,7 @@ export default function Blogs() {
     <div className="flex flex-col min-h-screen">
 
       {/* Hero */}
-      <section className="relative h-[340px] md:h-[420px] flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-[340px] sm:min-h-[380px] md:min-h-[440px] pt-36 sm:pt-40 md:pt-32 pb-12 flex flex-col items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img src={aboutBg} alt="AMACEDU Blog" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/55 to-black/70"></div>

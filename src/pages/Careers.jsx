@@ -81,7 +81,7 @@ export default function Careers() {
     <div className="flex flex-col min-h-screen bg-white">
 
       {/* Hero Banner */}
-      <section className="relative h-[340px] md:h-[420px] flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-[340px] sm:min-h-[380px] md:min-h-[440px] pt-36 sm:pt-40 md:pt-32 pb-12 flex flex-col items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img src={heroImg} alt="Careers at AMACEDU" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-black/60"></div>

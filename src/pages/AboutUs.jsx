@@ -100,7 +100,7 @@ export default function AboutUs() {
     <div className="flex flex-col min-h-screen">
       
       {/* 1. Hero Section */}
-      <section className="relative h-[400px] md:h-[500px] flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-[380px] sm:min-h-[420px] md:min-h-[480px] pt-36 sm:pt-40 md:pt-32 pb-12 flex flex-col items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img src={aboutBg} alt="About AMACEDU" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-black/60"></div>
