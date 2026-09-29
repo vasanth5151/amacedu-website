@@ -42,7 +42,7 @@ export default function Hero() {
             A Premier College of Education Shaping Future Educators in <span className="text-[#F97D81]">Tamil Nadu</span>
           </motion.h1>
 
-          <motion.p variants={fadeUp} className="text-base sm:text-lg text-ink-muted leading-relaxed mb-8 border-l-4 border-[#F97D81] pl-4">
+          <motion.p variants={fadeUp} className="text-base sm:text-lg text-gray-600 leading-relaxed mb-8 border-l-4 border-[#F97D81] pl-4">
             A premier College of Education in Tamil Nadu, AMACEDU is committed to delivering a transformative teacher education experience through academic excellence, modern infrastructure, and value-based learning.
           </motion.p>
 

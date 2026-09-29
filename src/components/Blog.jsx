@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { FiChevronRight, FiCalendar } from 'react-icons/fi'
 import { fadeUp, stagger, viewport } from '../lib/motion'
@@ -68,9 +69,9 @@ export default function Blog() {
                   {post.excerpt}
                 </p>
 
-                <a href={`/blog/${post.slug}`} className="inline-flex items-center gap-2 text-brand-green font-bold text-sm hover:text-brand-greenDark transition-colors">
+                <Link to={`/blog/${post.slug}`} className="inline-flex items-center gap-2 text-brand-green font-bold text-sm hover:text-brand-greenDark transition-colors">
                   Read More <FiChevronRight />
-                </a>
+                </Link>
               </div>
             </motion.div>
           ))}

@@ -13,6 +13,7 @@ import Admission from './pages/Admission';
 import Gallery from './pages/Gallery';
 import Careers from './pages/Careers';
 import Contact from './pages/Contact';
+import BlogDetail from './pages/BlogDetail';
 
 const pageMeta = {
   '/': {
@@ -95,6 +96,7 @@ function App() {
             <Route path="/about-us" element={<AboutUs />} />
             <Route path="/about-college" element={<AboutCollege />} />
             <Route path="/blog" element={<Blogs />} />
+            <Route path="/blog/:slug" element={<BlogDetail />} />
             <Route path="/academics" element={<Academic />} />
             <Route path="/facilities" element={<Facilities />} />
             <Route path="/curriculum" element={<Curriculum />} />

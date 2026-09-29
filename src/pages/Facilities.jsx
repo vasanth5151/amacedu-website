@@ -280,10 +280,12 @@ export default function Facilities() {
               <motion.div
                 key={feat.title}
                 variants={fadeUp}
-                className="bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:-translate-y-1.5 hover:shadow-xl transition-all duration-300 flex flex-col"
+                className="bg-white rounded-2xl border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:-translate-y-1.5 hover:shadow-xl transition-all duration-300 flex flex-col"
               >
-                <div className="h-52 md:h-56 relative overflow-hidden bg-gray-100">
-                  <img src={feat.img} alt={feat.title} className="w-full h-full object-cover transition-transform duration-500 hover:scale-105" />
+                <div className="relative">
+                  <div className="h-52 md:h-56 relative overflow-hidden bg-gray-100 rounded-t-2xl">
+                    <img src={feat.img} alt={feat.title} className="w-full h-full object-cover transition-transform duration-500 hover:scale-105" />
+                  </div>
                   <div className={`absolute -bottom-5 left-6 w-12 h-12 rounded-xl flex items-center justify-center shadow-md border-2 border-white ${feat.color}`}>
                     {feat.icon}
                   </div>

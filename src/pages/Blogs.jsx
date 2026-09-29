@@ -86,7 +86,7 @@ export default function Blogs() {
             </div>
           ) : (
             <motion.div
-              initial="hidden" whileInView="show" viewport={viewport} variants={stagger(0.15)}
+              initial="hidden" animate="show" variants={stagger(0.1)}
               className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
             >
               {posts.map((post) => (
@@ -122,9 +122,9 @@ export default function Blogs() {
                       {post.excerpt}
                     </p>
 
-                    <a href={`/blog/${post.slug}`} className="inline-flex items-center gap-2 text-brand-greenDark font-bold text-sm hover:gap-3 transition-all">
+                    <Link to={`/blog/${post.slug}`} className="inline-flex items-center gap-2 text-brand-greenDark font-bold text-sm hover:gap-3 transition-all">
                       Read More <FiArrowRight />
-                    </a>
+                    </Link>
                   </div>
                 </motion.article>
               ))}
