@@ -1,0 +1,19 @@
+# Block direct access to secrets/config
+<FilesMatch "^(send-email\.config\.php|\.env.*)$">
+  Require all denied
+</FilesMatch>
+
+Options -Indexes
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Serve real files and folders (send-email.php, assets, images) as-is
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # Everything else goes to the React app
+  RewriteRule ^ index.html [L]
+</IfModule>
